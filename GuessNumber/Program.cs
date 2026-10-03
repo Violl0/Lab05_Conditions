@@ -301,48 +301,81 @@
 // }
 
 
-Console.WriteLine("Введите число: ");
-int number1 = int.Parse(Console.ReadLine());
-Console.WriteLine("Введите число: ");
-int number2 = int.Parse(Console.ReadLine());
-Console.WriteLine("Введите число: ");
-int number3 = int.Parse(Console.ReadLine());
+// Console.WriteLine("Введите число: ");
+// int number1 = int.Parse(Console.ReadLine());
+// Console.WriteLine("Введите число: ");
+// int number2 = int.Parse(Console.ReadLine());
+// Console.WriteLine("Введите число: ");
+// int number3 = int.Parse(Console.ReadLine());
 
-if (number1 > 0 && number2 > 0 && number3 > 0)
-{
-    Console.WriteLine($"Результат: {number1 + number2 + number3}");
-}
-if (number1 > 0 && number2 > 0 && number3 < 0)
-{
-    Console.WriteLine($"Результат: {number1 + number2}");
-}
-if (number1 > 0 && number2 < 0 && number3 > 0)
-{
-    Console.WriteLine($"Результат: {number1 + number3}");
-}
-if (number1 < 0 && number2 > 0 && number3 > 0)
-{
-    Console.WriteLine($"Результат: {number2 + number3}");
-}
-if (number1 > 0 && number2 < 0 && number3 < 0)
-{
-    Console.WriteLine($"Результат: {number1}");
-}
-if (number1 < 0 && number2 > 0 && number3 < 0)
-{
-    Console.WriteLine($"Результат: {number2}");
-}
-if (number1 < 0 && number2 < 0 && number3 > 0)
-{
-    Console.WriteLine($"Результат: {number3}");
-}
-if (number1 < 0 && number2 < 0 && number3 < 0)
-{
-    Console.WriteLine($"Результат: 0");
-}
-if (number1 == 0 && number2 == 0 && number3 == 0)
-{
-    Console.WriteLine($"Результат: 0");
-}
+// if (number1 > 0 && number2 > 0 && number3 > 0)
+// {
+//     Console.WriteLine($"Результат: {number1 + number2 + number3}");
+// }
+// if (number1 > 0 && number2 > 0 && number3 < 0)
+// {
+//     Console.WriteLine($"Результат: {number1 + number2}");
+// }
+// if (number1 > 0 && number2 < 0 && number3 > 0)
+// {
+//     Console.WriteLine($"Результат: {number1 + number3}");
+// }
+// if (number1 < 0 && number2 > 0 && number3 > 0)
+// {
+//     Console.WriteLine($"Результат: {number2 + number3}");
+// }
+// if (number1 > 0 && number2 < 0 && number3 < 0)
+// {
+//     Console.WriteLine($"Результат: {number1}");
+// }
+// if (number1 < 0 && number2 > 0 && number3 < 0)
+// {
+//     Console.WriteLine($"Результат: {number2}");
+// }
+// if (number1 < 0 && number2 < 0 && number3 > 0)
+// {
+//     Console.WriteLine($"Результат: {number3}");
+// }
+// if (number1 < 0 && number2 < 0 && number3 < 0)
+// {
+//     Console.WriteLine($"Результат: 0");
+// }
+// if (number1 == 0 && number2 == 0 && number3 == 0)
+// {
+//     Console.WriteLine($"Результат: 0");
+// }
 
 
+Console.WriteLine("Путь А - дракон, Путь B - коридор");
+string path = Console.ReadLine();
+
+if (path == "A")
+{
+    Console.WriteLine("Загадка: Кто не дышит, но живёт хоть не нужно — много пьёт и в жизни, и в смерти тело как лёд ?");
+    string answer = Console.ReadLine();
+    if (answer == "рыба")
+    {
+        Console.WriteLine("Дракон открыл дверь");
+    }
+    else
+    {
+        Console.WriteLine("Дракон съел тебя");
+    }
+}
+else if (path == "B")
+{
+    Console.WriteLine("Дверь 1 - сокровища, Дверь 2 - ловушка");
+    string door = Console.ReadLine();
+    if (door == "1")
+    {
+        Console.WriteLine("Ты нашёл сокровища Dungeon Master'а!");
+    }
+    else
+    {
+        Console.WriteLine("Ядовитые шипы! Ты погиб.");
+    }
+}
+else
+{
+    Console.WriteLine("Неверный путь.");
+}
