@@ -272,30 +272,77 @@
 
 
 
+// Console.WriteLine("Введите число: ");
+// int number1 = int.Parse(Console.ReadLine());
+// Console.WriteLine("Введите число: ");
+// int number2 = int.Parse(Console.ReadLine());
+// Console.WriteLine("Введите оператор: ");
+// string operation = Console.ReadLine();
+// switch (operation)
+// {
+//     case "+":
+//         Console.WriteLine($"Результат: {number1 + number2}");
+//         break;
+//     case "-":
+//         Console.WriteLine($"Результат: {number1 - number2}");
+//         break;
+//     case "*":
+//         Console.WriteLine($"Результат: {number1 * number2}");
+//         break;
+//     case "/":
+//         if (number2 != 0)
+//             Console.WriteLine($"Результат: {number1 / number2}");
+//         else
+//             Console.WriteLine("Ошибка: Деление на ноль!");
+//         break;
+//     default:
+//         Console.WriteLine("Ошибка: Неизвестный оператор.");
+//         break;
+// }
+
+
 Console.WriteLine("Введите число: ");
 int number1 = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите число: ");
 int number2 = int.Parse(Console.ReadLine());
-Console.WriteLine("Введите оператор: ");
-string operation = Console.ReadLine();
-switch (operation)
+Console.WriteLine("Введите число: ");
+int number3 = int.Parse(Console.ReadLine());
+
+if (number1 > 0 && number2 > 0 && number3 > 0)
 {
-    case "+":
-        Console.WriteLine($"Результат: {number1 + number2}");
-        break;
-    case "-":
-        Console.WriteLine($"Результат: {number1 - number2}");
-        break;
-    case "*":
-        Console.WriteLine($"Результат: {number1 * number2}");
-        break;
-    case "/":
-        if (number2 != 0)
-            Console.WriteLine($"Результат: {number1 / number2}");
-        else
-            Console.WriteLine("Ошибка: Деление на ноль!");
-        break;
-    default:
-        Console.WriteLine("Ошибка: Неизвестный оператор.");
-        break;
+    Console.WriteLine($"Результат: {number1 + number2 + number3}");
 }
+if (number1 > 0 && number2 > 0 && number3 < 0)
+{
+    Console.WriteLine($"Результат: {number1 + number2}");
+}
+if (number1 > 0 && number2 < 0 && number3 > 0)
+{
+    Console.WriteLine($"Результат: {number1 + number3}");
+}
+if (number1 < 0 && number2 > 0 && number3 > 0)
+{
+    Console.WriteLine($"Результат: {number2 + number3}");
+}
+if (number1 > 0 && number2 < 0 && number3 < 0)
+{
+    Console.WriteLine($"Результат: {number1}");
+}
+if (number1 < 0 && number2 > 0 && number3 < 0)
+{
+    Console.WriteLine($"Результат: {number2}");
+}
+if (number1 < 0 && number2 < 0 && number3 > 0)
+{
+    Console.WriteLine($"Результат: {number3}");
+}
+if (number1 < 0 && number2 < 0 && number3 < 0)
+{
+    Console.WriteLine($"Результат: 0");
+}
+if (number1 == 0 && number2 == 0 && number3 == 0)
+{
+    Console.WriteLine($"Результат: 0");
+}
+
+
