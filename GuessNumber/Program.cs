@@ -84,83 +84,162 @@
 
 
 
-Console.WriteLine("Меню");
-Console.WriteLine("1. Посмотреть расписание");
-Console.WriteLine("2. Посмотреть оценки");
-Console.WriteLine("3. Связаться с преподавателем");
-Console.WriteLine("4. Выйти");
-Console.Write("Выберите пункт (1-4): ");
+// Console.WriteLine("Меню");
+// Console.WriteLine("1. Посмотреть расписание");
+// Console.WriteLine("2. Посмотреть оценки");
+// Console.WriteLine("3. Связаться с преподавателем");
+// Console.WriteLine("4. Выйти");
+// Console.Write("Выберите пункт (1-4): ");
 
-string choice = Console.ReadLine();
+// string choice = Console.ReadLine();
 
-switch (choice)
+// switch (choice)
+// {
+//     case "1":
+//         Console.WriteLine("Расписание: ИСП-244, каб. 102, 08:30");
+//         break;
+//     case "2":
+//         Console.WriteLine("Ваши оценки: ИСРПО — 20, РМП — 35,");
+//         break;
+//     case "3":
+//         Console.WriteLine("Email: denis.leontev92@yandex.ru");
+//         break;
+//     case "4":
+//         Console.WriteLine("До свидания!");
+//         break;
+//     default:
+//         Console.WriteLine($"Ошибка: пункт «{choice}» не существует. Введите число от 1 до 4.");
+//         break;
+// }
+
+
+// Console.Write("\nВведите номер дня недели (1-7): ");
+// int dayNumber = int.Parse(Console.ReadLine());
+
+// switch (dayNumber)
+// {
+//     case 1:
+//     case 2:
+//     case 3:
+//     case 4:
+//     case 5:
+//         Console.WriteLine("Рабочий день – пора учиться!");
+//         break;
+//     case 6:
+//     case 7:
+//         Console.WriteLine("Выходной – заслуженный отдых.");
+//         break;
+//     default:
+//         Console.WriteLine("Такого дня не существует.");
+//         break;
+// }
+
+
+// Console.Write("\nВведите номер месяца (1-12): ");
+// int month = int.Parse(Console.ReadLine());
+
+// switch (month)
+// {
+//     case 12:
+//     case 1:
+//     case 2:
+//         Console.WriteLine("Зима");
+//         break;
+//     case 3:
+//     case 4:
+//     case 5:
+//         Console.WriteLine("Весна");
+//         break;
+//     case 6:
+//     case 7:
+//     case 8:
+//         Console.WriteLine("Лето");
+//         break;
+//     case 9:
+//     case 10:
+//     case 11:
+//         Console.WriteLine("Осень");
+//         break;
+//     default:
+//         Console.WriteLine("Такого месяца не существует.");
+//         break;
+// }
+
+
+
+
+Random random = new Random();
+int secret = random.Next(1, 101);
+
+int attempts = 0;
+bool guessed = false;
+
+
+Console.WriteLine("Угадай число (1-100)");
+Console.WriteLine("Я загадал число. Попробуй угадать!");
+
+
+while (!guessed)
 {
-    case "1":
-        Console.WriteLine("Расписание: ИСП-244, каб. 102, 08:30");
-        break;
-    case "2":
-        Console.WriteLine("Ваши оценки: ИСРПО — 20, РМП — 35,");
-        break;
-    case "3":
-        Console.WriteLine("Email: denis.leontev92@yandex.ru");
-        break;
-    case "4":
-        Console.WriteLine("До свидания!");
-        break;
-    default:
-        Console.WriteLine($"Ошибка: пункт «{choice}» не существует. Введите число от 1 до 4.");
-        break;
+    Console.Write("Введите число: ");
+    string input = Console.ReadLine();
+
+    if (!int.TryParse(input, out int guess))
+    {
+        Console.WriteLine("!!! Это не число. Попробуйте снова.");
+        continue;
+    }
+
+
+    if (guess < 1 || guess > 100)
+    {
+        Console.WriteLine("!!! Число должно быть от 1 до 100!");
+        continue;
+    }
+
+
+    attempts++;
+
+
+    if (guess < secret)
+    {
+        int diff = secret - guess;
+        string hint = GetHint(diff);
+        Console.WriteLine($"↑ Больше! {hint}\n");
+    }
+    else if (guess > secret)
+    {
+        int diff = guess - secret;
+        string hint = GetHint(diff);
+        Console.WriteLine($"↓ Меньше! {hint}\n");
+    }
+    else
+    {
+        guessed = true; 
+    }
 }
 
 
-Console.Write("\nВведите номер дня недели (1-7): ");
-int dayNumber = int.Parse(Console.ReadLine());
+string result = attempts <= 7
+    ? $"Отличный результат! Всего {attempts} попыток."
+    : $"Число найдено за {attempts} попыток. Можно лучше!";
 
-switch (dayNumber)
+
+Console.WriteLine($"Правильно! Загаданное число: {secret}");
+Console.WriteLine($"{result}");
+
+
+static string GetHint(int diff)
 {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-        Console.WriteLine("Рабочий день – пора учиться!");
-        break;
-    case 6:
-    case 7:
-        Console.WriteLine("Выходной – заслуженный отдых.");
-        break;
-    default:
-        Console.WriteLine("Такого дня не существует.");
-        break;
-}
-
-
-Console.Write("\nВведите номер месяца (1-12): ");
-int month = int.Parse(Console.ReadLine());
-
-switch (month)
-{
-    case 12:
-    case 1:
-    case 2:
-        Console.WriteLine("Зима");
-        break;
-    case 3:
-    case 4:
-    case 5:
-        Console.WriteLine("Весна");
-        break;
-    case 6:
-    case 7:
-    case 8:
-        Console.WriteLine("Лето");
-        break;
-    case 9:
-    case 10:
-    case 11:
-        Console.WriteLine("Осень");
-        break;
-    default:
-        Console.WriteLine("Такого месяца не существует.");
-        break;
+    switch (diff)
+    {
+        case <= 3:
+            return "Огонь! Горячо!";
+        case <= 10:
+            return "Тепло.";
+        case <= 25:
+            return "Прохладно.";
+        default:
+            return "Холодно.";
+    }
 }
