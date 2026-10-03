@@ -249,9 +249,19 @@
 
 
 
-string pass = "12345";
-Console.Write("Введите пароль: ");
-if (Console.ReadLine() == pass)
+// string pass = "12345";
+// Console.Write("Введите пароль: ");
+// if (Console.ReadLine() == pass)
+// {
+//     Console.WriteLine("Доступ разрешён.");
+// }
+// else
+// {
+//     Console.WriteLine("Доступ запрещён.");
+// }
+
+int age = int.Parse(Console.ReadLine());
+if (age >= 18)
 {
     Console.WriteLine("Доступ разрешён.");
 }
@@ -259,4 +269,3 @@ else
 {
     Console.WriteLine("Доступ запрещён.");
 }
-
