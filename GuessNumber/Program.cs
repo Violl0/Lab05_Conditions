@@ -260,12 +260,42 @@
 //     Console.WriteLine("Доступ запрещён.");
 // }
 
-int age = int.Parse(Console.ReadLine());
-if (age >= 18)
+// int age = int.Parse(Console.ReadLine());
+// if (age >= 18)
+// {
+//     Console.WriteLine("Доступ разрешён.");
+// }
+// else
+// {
+//     Console.WriteLine("Доступ запрещён.");
+// }
+
+
+
+Console.WriteLine("Введите число: ");
+int number1 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите число: ");
+int number2 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите оператор: ");
+string operation = Console.ReadLine();
+switch (operation)
 {
-    Console.WriteLine("Доступ разрешён.");
-}
-else
-{
-    Console.WriteLine("Доступ запрещён.");
+    case "+":
+        Console.WriteLine($"Результат: {number1 + number2}");
+        break;
+    case "-":
+        Console.WriteLine($"Результат: {number1 - number2}");
+        break;
+    case "*":
+        Console.WriteLine($"Результат: {number1 * number2}");
+        break;
+    case "/":
+        if (number2 != 0)
+            Console.WriteLine($"Результат: {number1 / number2}");
+        else
+            Console.WriteLine("Ошибка: Деление на ноль!");
+        break;
+    default:
+        Console.WriteLine("Ошибка: Неизвестный оператор.");
+        break;
 }
